@@ -1,16 +1,35 @@
+#端口
 server:
   port: 8888
+#数据源
 spring:
- datasource:
-   driver-class-name: com.mysql.jdbc.Driver
-   url: jdbc:mysql://127.0.0.1:3306/springboot
-   username: root
-   password: 123456
- jpa:
-   hibernate:
-     ddl-auto: update
-   show-sql: true
-#mybatis配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springboot
+    username: root
+    password: 123456
+#设置上传文件大小
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+#mybatis
 mybatis:
-   typeAliasesPackage: com.xxz.model
-   mapper-locations: classpath:mappers/*.xml
+  typeAliasesPackage: com.zy.model
+  mapper-locations: classpath:mapper/*.xml
+#mapper接口生成代码时
+mapper:
+  mappers:
+    com.zy.utils.MyMapper
+  not-empty: false
+  identity: MYSQL
+#page分页
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+
+
