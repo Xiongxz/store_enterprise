@@ -20,7 +20,7 @@ mybatis:
 #mapper接口生成代码时
 mapper:
   mappers:
-    com.zy.utils.MyMapper
+    - com.zy.utils.MyMapper
   not-empty: false
   identity: MYSQL
 #page分页
@@ -29,6 +29,14 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+#日志
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+  file: logback-spring.log
+
+
 
 
 

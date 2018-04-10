@@ -11,7 +11,6 @@ import java.util.Map;
 
 @Service
 public class ZYJSONResult {
-
     /**
      *
      * @Title: ZYJSONResult.java
@@ -115,9 +114,6 @@ public class ZYJSONResult {
      * @param jsonData
      * @param clazz
      * @return
-     *
-     * @author leechenxiang
-     * @date 2016年4月22日 下午8:34:58
      */
     public static ZYJSONResult formatToPojo(String jsonData, Class<?> clazz) {
         try {
@@ -147,8 +143,6 @@ public class ZYJSONResult {
      * @param json
      * @return
      *
-     * @author leechenxiang
-     * @date 2016年4月22日 下午8:35:21
      */
     public static ZYJSONResult format(String json) {
         try {
@@ -165,9 +159,6 @@ public class ZYJSONResult {
      * @param jsonData
      * @param clazz
      * @return
-     *
-     * @author leechenxiang
-     * @date 2016年4月22日 下午8:35:31
      */
     public static ZYJSONResult formatToList(String jsonData, Class<?> clazz) {
         try {

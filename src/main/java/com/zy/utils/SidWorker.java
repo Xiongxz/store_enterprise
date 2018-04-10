@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * 生成Sid唯一
  * Created by xxz on 2018/4/6 0006.
  */
 public class SidWorker {

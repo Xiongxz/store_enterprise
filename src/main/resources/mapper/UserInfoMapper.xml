@@ -5,8 +5,9 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="user_age" jdbcType="INTEGER" property="userAge" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
   </resultMap>
 </mapper>

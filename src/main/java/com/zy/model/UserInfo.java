@@ -1,12 +1,15 @@
 package com.zy.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "user_info")
 public class UserInfo {
     @Id
     @Column(name = "user_id")
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "user_age")
     private Integer userAge;
@@ -14,17 +17,21 @@ public class UserInfo {
     @Column(name = "user_name")
     private String userName;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",locale = "zh",timezone = "GMT+8")
+    @Column(name = "start_date")
+    private Date startDate;
+
     /**
      * @return user_id
      */
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
     /**
      * @param userId
      */
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -54,5 +61,19 @@ public class UserInfo {
      */
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    /**
+     * @return start_date
+     */
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    /**
+     * @param startDate
+     */
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 }
