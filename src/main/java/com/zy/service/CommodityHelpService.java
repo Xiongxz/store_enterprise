@@ -13,6 +13,8 @@ public interface CommodityHelpService {
 
     int save(UserInfo userInfo);
 
-    List<UserInfo> selectAll();
+    List<UserInfo> getAll();
+
+    UserInfo getById(Long Id);
 
 }

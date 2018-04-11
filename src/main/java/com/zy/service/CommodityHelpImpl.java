@@ -22,7 +22,14 @@ public class CommodityHelpImpl implements CommodityHelpService{
     }
 
     @Override
-    public List<UserInfo> selectAll() {
+    public List<UserInfo> getAll() {
         return uim.selectAll();
     }
+
+    @Override
+    public UserInfo getById(Long Id) {
+        return uim.getById(Id);
+    }
+
+
 }

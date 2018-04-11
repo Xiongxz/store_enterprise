@@ -2,7 +2,6 @@ package com.zy.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -27,14 +26,17 @@ public class ZYJSONResult {
 
     // 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
+
     // 响应业务状态
     private Integer status;
+
     // 响应消息
     private String msg;
+
     // 响应中的数据
     private Object data;
 
-    private String ok;
+    //private String ok;
 
     public static ZYJSONResult build(Integer status, String msg, Object data) {
         return new ZYJSONResult(status, msg, data);
@@ -64,21 +66,24 @@ public class ZYJSONResult {
         return new ZYJSONResult(555, msg, null);
     }
 
-    public ZYJSONResult() {
-    }
     public static ZYJSONResult build(Integer status, String msg) {
         return new ZYJSONResult(status, msg, null);
     }
+
+    public ZYJSONResult() { }
+
     public ZYJSONResult(Integer status, String msg, Object data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
+
     public ZYJSONResult(Object data) {
         this.status = 200;
         this.msg = "成功";
         this.data = data;
     }
+
     public ZYJSONResult(String key,String data) {
         Map<String , String> map = new HashMap<String,String>();
         map.put(key,data);
@@ -86,27 +91,39 @@ public class ZYJSONResult {
         this.msg = "成功";
         this.data = map;
     }
+
     public Boolean isOK() {
         return this.status == 200;
     }
+
     public Integer getStatus() {
         return status;
     }
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     public String getMsg() {
         return msg;
     }
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
     public Object getData() {
         return data;
     }
     public void setData(Object data) {
         this.data = data;
     }
+
+    /*public String getOk() {
+        return ok;
+    }
+    public void setOk(String ok) {
+        this.ok = ok;
+    }*/
+
     /**
      *
      * @Description: 将json结果集转化为ZYJSONResult对象
@@ -173,11 +190,5 @@ public class ZYJSONResult {
         } catch (Exception e) {
             return null;
         }
-    }
-    public String getOk() {
-        return ok;
-    }
-    public void setOk(String ok) {
-        this.ok = ok;
     }
 }

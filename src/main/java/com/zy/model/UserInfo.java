@@ -70,6 +70,16 @@ public class UserInfo {
         return startDate;
     }
 
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "userId=" + userId +
+                ", userAge=" + userAge +
+                ", userName='" + userName + '\'' +
+                ", startDate=" + startDate +
+                '}';
+    }
+
     /**
      * @param startDate
      */
