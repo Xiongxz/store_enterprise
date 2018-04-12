@@ -1,13 +1,11 @@
 package com.zy.controller;
 
-import com.sun.deploy.util.StringUtils;
 import com.zy.model.UserInfo;
 import com.zy.service.CommodityHelpService;
 import com.zy.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,9 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
 
 /**
  * Created by xxz on 2018/4/6 0006.
@@ -34,6 +31,7 @@ public class CommodityHelpController {
 
     @RequestMapping(value={"/login"})
     public ModelAndView index(){
+        logger.info("############跳转页面测试############"+"index.html");
         return new ModelAndView("index");
     }
 
