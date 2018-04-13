@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by xxz on 2018/4/6 0006.
@@ -107,12 +106,12 @@ public class CommodityHelpController {
             model.setViewName("sueess");
             try {
                 Utils.uploadFile(file.getBytes(), filePath, newName);
-                ui.setUserId(new Date().getTime());
+                ui.setUserId(SidWorker.nextSid());
                 ui.setUserName(filePath+newName);
                 ui.setUserAge(10);
                 ui.setStartDate(sdf.parse(DateUtils.getCurrentDateTime()));
                 commodityHelpService.save(ui);
-                System.out.println("上传成功成功！");
+                System.out.println("上传成功！");
                 //return ZYJSONResult.mok("imgurl",filePath + newName);
             } catch (Exception e) {
                 //return ZYJSONResult.errorMsg("异常");

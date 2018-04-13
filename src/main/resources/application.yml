@@ -13,8 +13,6 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
-  jpa:
-    show-sql: true
 #mybatis
 mybatis:
   typeAliasesPackage: com.zy.model
@@ -39,6 +37,8 @@ logging:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
   max-size: 10MB
+  level:
+    com.zy.*: debug
 
 
 
