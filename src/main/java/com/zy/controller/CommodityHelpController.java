@@ -48,6 +48,7 @@ public class CommodityHelpController {
     @RequestMapping(value = {"/selectAll"})
     public ZYJSONResult selectAll(){
         logger.info("########测试mapper通用接口，查询所有########");
+        System.out.println("ID: " +Utils.getLocalTrmSeqNum());
         System.out.println("数据 ：" +JacksonUtils.listToJson(commodityHelpService.getAll()));
         return ZYJSONResult.ok(commodityHelpService.getAll());
     }
