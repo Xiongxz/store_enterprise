@@ -111,9 +111,8 @@ public class CommodityHelpController {
             userInfo.setUserName("测试");
             userInfo.setStartDate(sdf.parse(DateUtils.getCurrentDateTime()));
             commodityHelpService.save(userInfo);
-            Test test=new Test();
-            test.setCode("Test数据测试");
         }catch (Exception e){
+            e.printStackTrace();
             logger.info("添加失败");
             return ZYJSONResult.errorException("系统异常");
         }
