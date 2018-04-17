@@ -27,6 +27,8 @@
         <javaClientGenerator targetPackage="com.zy.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
-        <table tableName="user_info"></table>
+        <!--<table tableName="user_info"></table>
+        <table tableName="test"></table>-->
+        <table tableName="tests"></table>
     </context>
 </generatorConfiguration>

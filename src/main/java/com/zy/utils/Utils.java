@@ -19,14 +19,15 @@ public class Utils {
     public static void main(String[] args) {
         //String m = "ER-";
         for (int i = 0; i < 2; i++) {
-            String format = String.format("ER-%05d", 66);
+            String format = String.format("ER-%05d", i);
             System.out.println(format);
         }
         final AtomicInteger counter = new AtomicInteger(0);
-
-        String s = String.format("C%06d",counter.incrementAndGet());
+        String l="6";
+        String s = String.format("C%0"+l+"d",counter.incrementAndGet());
         System.out.println(s);
     }
+
 
     private static int sequence = 0;
 

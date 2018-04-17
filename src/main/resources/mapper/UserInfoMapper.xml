@@ -10,10 +10,10 @@
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     user_id, user_age, user_name, start_date
   </sql>
-  <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from user_info

@@ -1,5 +1,8 @@
 package com.zy.controller;
 
+import ch.qos.logback.core.rolling.helper.IntegerTokenConverter;
+import com.zy.model.Test;
+import com.zy.model.Tests;
 import com.zy.model.UserInfo;
 import com.zy.service.CommodityHelpService;
 import com.zy.utils.*;
@@ -33,6 +36,35 @@ public class CommodityHelpController {
         logger.info("############跳转页面测试############"+"index.html");
         return new ModelAndView("index");
     }
+
+    @RequestMapping(value={"/generatorId"},method = RequestMethod.GET)
+    public ZYJSONResult generatorId()throws Exception{
+            Integer id = null;
+            String newId="";
+        try {
+            id = commodityHelpService.getMaxEPId();
+            if(id==null || id.equals("")){
+                id=0;
+            }
+            newId = CustomIDGenerator.getNextID("EP-", "6", ++id);
+            Test test = new Test();
+            test.setId(newId);
+            test.setCode("测试啦！！！");
+            int saveTest = commodityHelpService.saveTest(test);
+            Tests tests = new Tests();
+            tests.setEpId(id);
+            int saveTests = commodityHelpService.saveTests(tests);
+            if (saveTest == 1 && saveTests == 1) {
+                System.out.println("新ID保存成功！！");
+                return ZYJSONResult.ok(newId);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.info("系统异常");
+        }
+        return ZYJSONResult.errorException("系统错误！");
+    }
+
 
     @RequestMapping(value = {"/log"},method = RequestMethod.GET)
     public ModelAndView login(){
@@ -79,6 +111,8 @@ public class CommodityHelpController {
             userInfo.setUserName("测试");
             userInfo.setStartDate(sdf.parse(DateUtils.getCurrentDateTime()));
             commodityHelpService.save(userInfo);
+            Test test=new Test();
+            test.setCode("Test数据测试");
         }catch (Exception e){
             logger.info("添加失败");
             return ZYJSONResult.errorException("系统异常");

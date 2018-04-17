@@ -1,7 +1,5 @@
 package com.zy.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 import javax.persistence.*;
 
@@ -17,7 +15,6 @@ public class UserInfo {
     @Column(name = "user_name")
     private String userName;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",locale = "zh",timezone = "GMT+8")
     @Column(name = "start_date")
     private Date startDate;
 
@@ -68,16 +65,6 @@ public class UserInfo {
      */
     public Date getStartDate() {
         return startDate;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "userId=" + userId +
-                ", userAge=" + userAge +
-                ", userName='" + userName + '\'' +
-                ", startDate=" + startDate +
-                '}';
     }
 
     /**
