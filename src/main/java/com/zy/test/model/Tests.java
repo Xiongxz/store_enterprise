@@ -1,6 +1,7 @@
-package com.zy.model;
+package com.zy.test.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 public class Tests {
     @Id

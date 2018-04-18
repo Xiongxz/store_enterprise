@@ -1,6 +1,6 @@
-package com.zy.mapper;
+package com.zy.test.mapper;
 
-import com.zy.model.UserInfo;
+import com.zy.test.model.UserInfo;
 import com.zy.utils.MyMapper;
 
 public interface UserInfoMapper extends MyMapper<UserInfo> {

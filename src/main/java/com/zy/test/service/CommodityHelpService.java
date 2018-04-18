@@ -1,8 +1,8 @@
-package com.zy.service;
+package com.zy.test.service;
 
-import com.zy.model.Test;
-import com.zy.model.Tests;
-import com.zy.model.UserInfo;
+import com.zy.test.model.Test;
+import com.zy.test.model.Tests;
+import com.zy.test.model.UserInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

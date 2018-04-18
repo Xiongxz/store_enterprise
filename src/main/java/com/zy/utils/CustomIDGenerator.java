@@ -27,6 +27,6 @@ public class CustomIDGenerator {
             String format = String.format(prefix+"%0"+digit+"d", suffix);
             return format;
         }
-        return "ID实际长度大于指定位数，请调整位数大小";
+        return "ID实际长度大于指定位数，请调整位数大小!";
     }
 }

@@ -15,7 +15,7 @@ spring:
       max-request-size: 10MB
 #mybatis
 mybatis:
-  typeAliasesPackage: com.zy.model
+  typeAliasesPackage: com.zy.test.model
   mapper-locations: classpath:mapper/*.xml
 
 #mapper接口生成代码时
