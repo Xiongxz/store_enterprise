@@ -30,20 +30,20 @@ public class CommodityHelpController {
     @Autowired
     private CommodityHelpService commodityHelpService;
 
-    @RequestMapping(value={"/login"})
-    public ModelAndView index(){
-        logger.info("############跳转页面测试############"+"index.html");
+    @RequestMapping(value = {"/login"})
+    public ModelAndView index() {
+        logger.info("############跳转页面测试############" + "index.html");
         return new ModelAndView("index");
     }
 
-    @RequestMapping(value={"/generatorId"},method = RequestMethod.GET)
-    public ZYJSONResult generatorId()throws Exception{
-            Integer id = null;
-            String newId="";
+    @RequestMapping(value = {"/generatorId"}, method = RequestMethod.GET)
+    public ZYJSONResult generatorId() throws Exception {
+        Integer id = null;
+        String newId = "";
         try {
             id = commodityHelpService.getMaxEPId();
-            if(id==null || id.equals("")){
-                id=0;
+            if (id == null || id.equals("")) {
+                id = 0;
             }
             newId = CustomIDGenerator.getNextID("EP-", "6", ++id);
             Test test = new Test();
@@ -57,7 +57,7 @@ public class CommodityHelpController {
                 System.out.println("新ID保存成功！！");
                 return ZYJSONResult.ok(newId);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             logger.info("系统异常");
         }
@@ -65,8 +65,8 @@ public class CommodityHelpController {
     }
 
 
-    @RequestMapping(value = {"/log"},method = RequestMethod.GET)
-    public ModelAndView login(){
+    @RequestMapping(value = {"/log"}, method = RequestMethod.GET)
+    public ModelAndView login() {
         logger.info("日志测试");
         //logger.debug("This is a debug message");
         //logger.info("This is an info message");
@@ -77,21 +77,21 @@ public class CommodityHelpController {
     }
 
     @RequestMapping(value = {"/selectAll"})
-    public ZYJSONResult selectAll(){
+    public ZYJSONResult selectAll() {
         logger.info("########测试mapper通用接口，查询所有########");
-        System.out.println("ID: " +Utils.getLocalTrmSeqNum());
-        System.out.println("数据 ：" +JacksonUtils.listToJson(commodityHelpService.getAll()));
+        System.out.println("ID: " + Utils.getLocalTrmSeqNum());
+        System.out.println("数据 ：" + JacksonUtils.listToJson(commodityHelpService.getAll()));
         return ZYJSONResult.ok(commodityHelpService.getAll());
     }
 
     @RequestMapping(value = {"/getById"})
-    public ZYJSONResult getById(){
+    public ZYJSONResult getById() {
         logger.info("########测试mapper自定义sql接口，根据ID查询########");
         Long userId = 2018041016593292800L;
-        UserInfo ui=null;
+        UserInfo ui = null;
         try {
             ui = commodityHelpService.getById(userId);
-            System.out.println("数据 ：" +JacksonUtils.obj2json(ui));
+            System.out.println("数据 ：" + JacksonUtils.obj2json(ui));
         } catch (Exception e) {
             e.printStackTrace();
             return ZYJSONResult.errorException("系统异常");
@@ -100,7 +100,7 @@ public class CommodityHelpController {
     }
 
     @RequestMapping(value = {"/saveUserInfo"})
-    public ZYJSONResult saveUserInfo(){
+    public ZYJSONResult saveUserInfo() {
         logger.info("测试mapper通用接口，添加ONE");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         UserInfo userInfo = new UserInfo();
@@ -110,7 +110,7 @@ public class CommodityHelpController {
             userInfo.setUserName("测试");
             userInfo.setStartDate(sdf.parse(DateUtils.getCurrentDateTime()));
             commodityHelpService.save(userInfo);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             logger.info("添加失败");
             return ZYJSONResult.errorException("系统异常");
@@ -119,28 +119,28 @@ public class CommodityHelpController {
         return ZYJSONResult.ok("保存成功");
     }
 
-    @RequestMapping(value={"/uploadFile"},method = RequestMethod.POST)
-    public ModelAndView uploadFile(@RequestParam(value = "file",required = false) MultipartFile file, HttpServletRequest request) throws IOException {
+    @RequestMapping(value = {"/uploadFile"}, method = RequestMethod.POST)
+    public ModelAndView uploadFile(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request) throws IOException {
         logger.info("#############文件上传---测试#########");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        ModelAndView  model  =  new ModelAndView();
+        ModelAndView model = new ModelAndView();
         if (request instanceof MultipartHttpServletRequest && !file.isEmpty() && file.getSize() > 0) {
             String contentType = file.getContentType();
             String fileName = file.getOriginalFilename();
             String newName = Utils.getUUID() + fileName.substring(fileName.lastIndexOf("."));
             String filePath = request.getSession().getServletContext().getRealPath("img/");
             System.out.println("文件类型：" + contentType);
-            System.out.println("文件完整路径: " + filePath+newName);
+            System.out.println("文件完整路径: " + filePath + newName);
             System.out.println("文件原名称：" + fileName);
             System.out.println("文件新名称：" + newName);
             System.out.println("文件大小：" + file.getSize());
             UserInfo ui = new UserInfo();
-            model.addObject("name","img/"+newName);
+            model.addObject("name", "img/" + newName);
             model.setViewName("sueess");
             try {
                 Utils.uploadFile(file.getBytes(), filePath, newName);
                 ui.setUserId(SidWorker.nextSid());
-                ui.setUserName(filePath+newName);
+                ui.setUserName(filePath + newName);
                 ui.setUserAge(10);
                 ui.setStartDate(sdf.parse(DateUtils.getCurrentDateTime()));
                 commodityHelpService.save(ui);

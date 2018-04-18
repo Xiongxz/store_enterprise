@@ -11,19 +11,20 @@ import java.io.IOException;
 public class UploadFile {
     /**
      * 文件上传
-     * @param file 文件
+     *
+     * @param file     文件
      * @param filePath 文件路径
      * @param fileName 文件名称
      * @throws IOException
      */
     public static void uploadFile(byte[] file, String filePath, String fileName) throws IOException {
         File targetFile = new File(filePath);
-        if(!targetFile.exists()){
+        if (!targetFile.exists()) {
             targetFile.mkdirs();
         }
         FileOutputStream out = null;
         try {
-            out = new FileOutputStream(filePath+fileName);
+            out = new FileOutputStream(filePath + fileName);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -18,7 +18,8 @@ import java.util.Map;
  */
 public class JacksonUtils {
     private final static ObjectMapper objectMapper = new ObjectMapper();
-    private final static GsonJsonParser ojb=new GsonJsonParser();
+    private final static GsonJsonParser ojb = new GsonJsonParser();
+
     private JacksonUtils() {
 
     }
@@ -30,11 +31,12 @@ public class JacksonUtils {
     /**
      * https://mvnrepository.com/artifact/com.google.code.gson/gson
      * list泛型转json
+     *
      * @param list
      * @return
      */
-    public static String listToJson(List<?> list){
-        return  new Gson().toJson(list);
+    public static String listToJson(List<?> list) {
+        return new Gson().toJson(list);
     }
 
     /**

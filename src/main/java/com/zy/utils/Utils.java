@@ -23,8 +23,8 @@ public class Utils {
             System.out.println(format);
         }
         final AtomicInteger counter = new AtomicInteger(0);
-        String l="6";
-        String s = String.format("C%0"+l+"d",counter.incrementAndGet());
+        String l = "6";
+        String s = String.format("C%0" + l + "d", counter.incrementAndGet());
         System.out.println(s);
     }
 
@@ -43,11 +43,12 @@ public class Utils {
         String datetime = new SimpleDateFormat("yyyyMMddHHmmss")
                 .format(new Date());
         String s = Integer.toString(sequence);
-        return datetime +addLeftZero(s, length);
+        return datetime + addLeftZero(s, length);
     }
 
     /**
      * 左填0
+     *
      * @param s
      * @param length
      * @return
@@ -73,19 +74,21 @@ public class Utils {
         return s.substring(0, length);
 
     }
+
     /**
      * 文件上传
-     * @param file 文件
+     *
+     * @param file     文件
      * @param filePath 文件路径
      * @param fileName 文件名称
      * @throws Exception
      */
-    public static void uploadFile(byte[] file,String filePath,String fileName) throws Exception {
+    public static void uploadFile(byte[] file, String filePath, String fileName) throws Exception {
         File targetFile = new File(filePath);
-        if(!targetFile.exists()){
+        if (!targetFile.exists()) {
             targetFile.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(filePath+fileName);
+        FileOutputStream out = new FileOutputStream(filePath + fileName);
         out.write(file);
         out.flush();
         out.close();
@@ -93,9 +96,10 @@ public class Utils {
 
     /**
      * uuid生成ID
+     *
      * @return
      */
-    public static String getUUID(){
+    public static String getUUID() {
         String uuid = UUID.randomUUID().toString().toLowerCase();
         //去掉“-”符号
         return uuid.replaceAll("-", "");

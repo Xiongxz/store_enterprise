@@ -11,7 +11,6 @@ import java.util.Map;
 @Service
 public class ZYJSONResult {
     /**
-     *
      * @Title: ZYJSONResult.java
      * @Package com.xxz.utils
      * @Description: 自定义响应数据结构
@@ -22,7 +21,7 @@ public class ZYJSONResult {
      * 500：表示错误，错误信息在msg字段中
      * 501：bean验证错误，不管多少个错误都以map形式返回
      * 555：异常抛出信息
-     * */
+     */
 
     // 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -46,8 +45,8 @@ public class ZYJSONResult {
         return new ZYJSONResult(data);
     }
 
-    public static ZYJSONResult mok(String key,String data) {
-        return new ZYJSONResult(key,data);
+    public static ZYJSONResult mok(String key, String data) {
+        return new ZYJSONResult(key, data);
     }
 
     public static ZYJSONResult ok() {
@@ -70,7 +69,8 @@ public class ZYJSONResult {
         return new ZYJSONResult(status, msg, null);
     }
 
-    public ZYJSONResult() { }
+    public ZYJSONResult() {
+    }
 
     public ZYJSONResult(Integer status, String msg, Object data) {
         this.status = status;
@@ -84,9 +84,9 @@ public class ZYJSONResult {
         this.data = data;
     }
 
-    public ZYJSONResult(String key,String data) {
-        Map<String , String> map = new HashMap<String,String>();
-        map.put(key,data);
+    public ZYJSONResult(String key, String data) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(key, data);
         this.status = 200;
         this.msg = "成功";
         this.data = map;
@@ -99,6 +99,7 @@ public class ZYJSONResult {
     public Integer getStatus() {
         return status;
     }
+
     public void setStatus(Integer status) {
         this.status = status;
     }
@@ -106,6 +107,7 @@ public class ZYJSONResult {
     public String getMsg() {
         return msg;
     }
+
     public void setMsg(String msg) {
         this.msg = msg;
     }
@@ -113,6 +115,7 @@ public class ZYJSONResult {
     public Object getData() {
         return data;
     }
+
     public void setData(Object data) {
         this.data = data;
     }
@@ -125,12 +128,11 @@ public class ZYJSONResult {
     }*/
 
     /**
-     *
-     * @Description: 将json结果集转化为ZYJSONResult对象
-     * 需要转换的对象是一个类
      * @param jsonData
      * @param clazz
      * @return
+     * @Description: 将json结果集转化为ZYJSONResult对象
+     * 需要转换的对象是一个类
      */
     public static ZYJSONResult formatToPojo(String jsonData, Class<?> clazz) {
         try {
@@ -154,12 +156,11 @@ public class ZYJSONResult {
 
         }
     }
+
     /**
-     *
-     * @Description: 没有object对象的转化
      * @param json
      * @return
-     *
+     * @Description: 没有object对象的转化
      */
     public static ZYJSONResult format(String json) {
         try {
@@ -169,13 +170,13 @@ public class ZYJSONResult {
         }
         return null;
     }
+
     /**
-     *
-     * @Description: Object是集合转化
-     * 需要转换的对象是一个list
      * @param jsonData
      * @param clazz
      * @return
+     * @Description: Object是集合转化
+     * 需要转换的对象是一个list
      */
     public static ZYJSONResult formatToList(String jsonData, Class<?> clazz) {
         try {

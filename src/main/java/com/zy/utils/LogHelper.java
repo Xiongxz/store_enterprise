@@ -10,7 +10,8 @@ import javax.swing.*;
  */
 public class LogHelper {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    public void helpMethod(){
+
+    public void helpMethod() {
         logger.debug("This is a debug message");
         logger.info("This is an info message");
         logger.warn("This is a warn message");

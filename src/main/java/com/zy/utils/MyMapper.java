@@ -7,6 +7,7 @@ import tk.mybatis.mapper.common.MySqlMapper;
 /**
  * https://github.com/abel533/MyBatis-Spring-Boot
  * 通用Mapper接口
+ *
  * @param <T>
  */
 @Repository

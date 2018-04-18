@@ -9,10 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 所有类必须在同级目录或下级目录
  */
 @SpringBootApplication
-@MapperScan("com.zy.test.mapper")//使用tk提供的注解扫描，不然会报错
+@MapperScan("com.zy.*.mapper")//使用tk提供的注解扫描，不然会报错
 public class SpringbootzyApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootzyApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootzyApplication.class, args);
+    }
 }
