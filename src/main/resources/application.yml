@@ -5,9 +5,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/springboot
-    username: root
-    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/springbootzy
+    username: zy
+    password: zypwd
 #设置上传文件大小
   servlet:
     multipart:
@@ -15,7 +15,7 @@ spring:
       max-request-size: 10MB
 #mybatis
 mybatis:
-  typeAliasesPackage: com.zy.test.model
+  typeAliasesPackage: com.zy.*.model
   mapper-locations: classpath:mapper/*.xml
 
 #mapper接口生成代码时
