@@ -4,10 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 
 public class Tests {
-    @Id
+
     private Integer id;
 
-    @Column(name = "ep_id")
+
     private Integer epId;
 
     /**

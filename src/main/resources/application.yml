@@ -5,9 +5,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/springbootzy
-    username: zy
-    password: zypwd
+    url: jdbc:mysql://127.0.0.1:3306/springboot
+    username: root
+    password: 123456
 #设置上传文件大小
   servlet:
     multipart:
@@ -34,8 +34,8 @@ pagehelper:
 logging:
   file: logback-spring.log
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
-    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+    #console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+    #file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger- %msg%n"
   max-size: 10MB
   level:
     com.zy.*: debug

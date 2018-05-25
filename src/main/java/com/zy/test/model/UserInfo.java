@@ -5,19 +5,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Table(name = "user_info")
 public class UserInfo {
-    @Id
-    @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "user_age")
     private Integer userAge;
 
-    @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "start_date")
     private Date startDate;
 
     /**

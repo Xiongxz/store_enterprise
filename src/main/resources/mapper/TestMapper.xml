@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zy.test.mapper.TestMapper">
   <resultMap id="BaseResultMap" type="com.zy.test.model.Test">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
-  </resultMap>
+  <!--
+    WARNING - @mbg.generated
+  -->
+  <id column="id" jdbcType="VARCHAR" property="id" />
+  <result column="code" jdbcType="VARCHAR" property="code" />
+</resultMap>
 </mapper>
